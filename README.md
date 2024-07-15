@@ -20,4 +20,4 @@ To use this library in your project, add the following to your `Cargo.toml` file
 
 ```toml
 [dependencies]
-personal_rust_utils = { git = "https://github.com/YmClash/personal_rust_utils.git" }
+ymcrust = { git = "https://github.com/YmClash/ymcrust.git" }
