@@ -1,6 +1,7 @@
 use std::io;
 use rand::{Rng,thread_rng};
 use std::time::Duration;
+use std::thread;
 
 
 
@@ -37,7 +38,7 @@ pub fn random(start:i32,end:i32) ->i32 {
 }
 
 pub fn pause(sec:u64) {
-    let _ = Duration::from_secs(sec);
+    let _ = thread::sleep(Duration::from_secs(sec));
 }
 
 
