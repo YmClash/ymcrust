@@ -5,3 +5,12 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.5"
+
+
+[[test]]
+name = "io_test"
+path = "src/tests/io_test.rs"
+
+[[test]]
+name = "math_test"
+path = "src/tests/math_test.rs"
