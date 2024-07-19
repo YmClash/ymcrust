@@ -14,3 +14,7 @@ path = "src/tests/io_test.rs"
 [[test]]
 name = "math_test"
 path = "src/tests/math_test.rs"
+
+[[test]]
+name = "string_test"
+path = "src/tests/string_test.rs"

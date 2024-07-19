@@ -1,7 +1,10 @@
 
 
 
-// fonction qui retoune true si la chaine de caractère est un palindrome
+// STRING MODULE TEST
+
+
+// #001: fonction qui retoune true si la chaine de caractère est un palindrome
 pub fn is_palindrome(s: &str) -> bool {
     let s = s.to_lowercase();
     let chars: Vec<char> = s.chars().collect();
@@ -17,7 +20,7 @@ pub fn is_palindrome(s: &str) -> bool {
 }
 
 
-// fonction  qui  compte le nombre de caractere
+// #002: fonction qui compte le nombre de caractère dans une chaine de caractère
 
 pub fn count_char(word:&str) -> usize{
     let count = word.chars().count();
@@ -25,3 +28,17 @@ pub fn count_char(word:&str) -> usize{
 }
 
 
+
+
+// 003 : fonction qui retourne la chaine de caractère inversée
+pub fn reverse(word:&str) ->String{
+    let chars:Vec<char> = word.chars().collect();
+    let mut reverse_chars = chars;
+    reverse_chars.reverse();
+    let reverse :String =  reverse_chars.into_iter().collect();
+    return reverse;
+
+}
+
+
+//YmC

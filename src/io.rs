@@ -1,9 +1,16 @@
 use std::io;
 use std::time::Duration;
 use std::thread;
+use std::any::type_name;
 
 
-// Input Module
+pub fn type_of<T>(_variable:T) -> &'static str{
+    type_name::<T>()
+}
+
+
+
+
 
 // input string
 
