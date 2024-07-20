@@ -1,25 +1,23 @@
 #[cfg(test)]
 mod tests {
-    //use super::*;
-    //use chrono::{DateTime, Utc};
-    //use chrono::localresult;
 
     use chrono::Utc;
+    use ymcrust::get_date;
 
-#[test]
+    #[test]
     fn test_date() {
         use ymcrust::get_date;
         let result = get_date();
         assert!(result.timestamp() > 0)
 
     }
-    //
-    // #[test]
-    // fn test_get_date_str() {
-    //     use ymcrust::get_date_str;
-    //     let result = get_date_str();
-    //     let now = Utc.datetime_from_str(&result, "%Y-%m-%dT%H:%M:%S%.fZ").unwrap();
-    //     assert!(now.timestamp() > 0);
+
+    #[test]
+    fn test_get_date_str() {
+        use ymcrust::{get_date_str,type_of};
+        let result = get_date_str();
+        let now = get_date().to_string();
+        assert_eq!( type_of(result),type_of(now));
     }
     //
     // #[test]
