@@ -1,6 +1,6 @@
 //file: string_test.rs
 
-
+//mod string_test;
 
 #[cfg(test)]
 mod tests {

@@ -1,7 +1,7 @@
 
 
 
-// STRING MODULE TEST
+// STRING MODULE
 
 
 // #001: fonction qui retoune true si la chaine de caractère est un palindrome

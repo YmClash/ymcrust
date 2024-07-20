@@ -5,6 +5,11 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.5"
+chrono = "0.4.38"
+
+
+
+
 
 
 [[test]]
@@ -18,3 +23,8 @@ path = "src/tests/math_test.rs"
 [[test]]
 name = "string_test"
 path = "src/tests/string_test.rs"
+
+[[test]]
+name = "date_test"
+path = "src/tests/date_test.rs"
+
