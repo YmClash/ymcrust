@@ -4,9 +4,6 @@
 #[cfg(test)]
 mod tests {
 
-
-
-
     //test  pas encore optimal
     #[test]
 
@@ -35,5 +32,33 @@ mod tests {
         use ymcrust::pause;
         let result = pause(2);
         assert_eq!(result,());
+    }
+
+    #[test]
+
+    fn test_type_of(){
+        use ymcrust::type_of;
+        let number = 42;
+        assert_eq!(type_of(&number),"&i32");
+
+        let nom = "YMCRUST";
+        assert_eq!(type_of(nom),"&str");
+
+        let hello = "Hello, world!";
+        let string = hello.to_string();
+        assert_eq!(type_of(&string), "&alloc::string::String");
+
+
+        let array = vec![1,2,3,4,5];
+        assert_eq!(type_of(&array),"&alloc::vec::Vec<i32>");
+
+        let decimal = 52.74;
+        assert_eq!(type_of(&decimal),"&f64");
+
+        let boolean = true;
+        assert_eq!(type_of(&boolean),"&bool");
+        //
+        let option : Option<i32> = Some(42);
+        assert_eq!(type_of(&option),"&core::option::Option<i32>");
     }
 }
