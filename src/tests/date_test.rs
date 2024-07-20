@@ -1,9 +1,6 @@
 #[cfg(test)]
 mod tests {
 
-    use chrono::Utc;
-    use ymcrust::get_date;
-
     #[test]
     fn test_date() {
         use ymcrust::get_date;
@@ -14,7 +11,7 @@ mod tests {
 
     #[test]
     fn test_get_date_str() {
-        use ymcrust::{get_date_str,type_of};
+        use ymcrust::{get_date,get_date_str,type_of};
         let result = get_date_str();
         let now = get_date().to_string();
         assert_eq!( type_of(result),type_of(now));
