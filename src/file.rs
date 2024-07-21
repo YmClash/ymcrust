@@ -17,7 +17,7 @@ pub fn read_file(path: &str) -> Result<String, Error> {
 }
 
 
-pub fn read_file_2(path:&str) {
+pub fn read_show_file(path:&str) {
     let file = File::open(path).unwrap();
     let reader = BufReader::new(file);
     for line in reader.lines(){
