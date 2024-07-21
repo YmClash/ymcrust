@@ -1,4 +1,4 @@
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, NaiveDate, Utc};
 use chrono::TimeZone;
 
 
@@ -27,6 +27,17 @@ pub fn date_to_timestamps(date: DateTime<Utc>)  -> i64 {
 pub fn timestamps_to_date(timestamps: i64) -> String {
     let date = Utc.timestamp_opt(timestamps,0).unwrap().to_rfc2822();
     return date;
+}
+
+//005
+pub fn is_valid_date(date_str: &str) -> bool {
+    let format = "%d-%m-%Y";
+//  let format = "%Y-%m-%d %H:%M:%S";
+    match NaiveDate::parse_from_str(date_str,format){
+        Ok(_) => true,
+        Err(_) => false,
+    }
+
 }
 
 

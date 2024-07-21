@@ -33,5 +33,15 @@ mod tests {
         assert_eq!(date_timestamp,"Tue, 27 Oct 1992 00:00:00 +0000");
     }
 
+    #[test]
+    fn test_is_valid_date(){
+        use ymcrust::{is_valid_date};
+        let date = "27-10-1992";
+        let date_2 = "2700-10-27";
+
+        assert_eq!(is_valid_date(date),true);
+        assert_eq!(is_valid_date(date_2),false);
+    }
+
 
 }
