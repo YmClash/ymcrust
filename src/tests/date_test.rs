@@ -1,5 +1,6 @@
 #[cfg(test)]
 mod tests {
+   // use ymcrust::date_to_timestamps;
 
     #[test]
     fn test_date() {
@@ -16,21 +17,21 @@ mod tests {
         let now = get_date().to_string();
         assert_eq!( type_of(result),type_of(now));
     }
-    //
-    // #[test]
-    // fn test_date_to_timestamps(){
-    //     use ymcrust::{date_to_timestamps, get_date};
-    //     let now = gete_date();
-    //     let timestamp = date_to_timestamps(now);
-    //     assert_eq!(now.timestamp(),timestamp)
-    // }
-    //
-    // #[test]
-    // fn test_timestamps_to_date(){
-    //     use ymcrust::{timestamps_to_date, get_date, date_to_timestamps};
-    //     let now = get_date();
-    //     let timestamp = date_to_timestamps(now);
-    //     let date = timestamps_to_date(timestamp);
-    //     assert_eq!(now, date);
-    // }
+
+    #[test]
+    fn test_date_to_timestamps(){
+        use ymcrust::{date_to_timestamps, get_date};
+        let now = get_date();
+        let timestamp = date_to_timestamps(now);
+        assert_eq!(now.timestamp(),timestamp)
+    }
+
+    #[test]
+    fn test_timestamps_to_date(){
+        use ymcrust::{timestamps_to_date};
+        let date_timestamp = timestamps_to_date(720144000);
+        assert_eq!(date_timestamp,"Tue, 27 Oct 1992 00:00:00 +0000");
+    }
+
+
 }

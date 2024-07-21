@@ -1,6 +1,6 @@
 use chrono::{DateTime, Utc};
 use chrono::TimeZone;
-use chrono::LocalResult;
+
 
 
 // Dateutils module
@@ -24,8 +24,8 @@ pub fn date_to_timestamps(date: DateTime<Utc>)  -> i64 {
 }
 
 //004
-pub fn timestamps_to_date(timestamps: i64) -> LocalResult<DateTime<Utc>>{
-    let date = Utc.timestamp_opt(timestamps,0);
+pub fn timestamps_to_date(timestamps: i64) -> String {
+    let date = Utc.timestamp_opt(timestamps,0).unwrap().to_rfc2822();
     return date;
 }
 
