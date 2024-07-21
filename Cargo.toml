@@ -28,3 +28,9 @@ path = "src/tests/string_test.rs"
 name = "date_test"
 path = "src/tests/date_test.rs"
 
+[[test]]
+name = "file_test"
+path = "src/tests/file_test.rs"
+
+
+
