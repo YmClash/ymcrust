@@ -31,7 +31,7 @@ pub fn timestamps_to_date(timestamps: i64) -> String {
 
 //005
 pub fn is_valid_date(date_str: &str) -> bool {
-    let format = "%d-%m-%Y";
+    let format = "%d-%m-%Y" ;
 //  let format = "%Y-%m-%d %H:%M:%S";
     match NaiveDate::parse_from_str(date_str,format){
         Ok(_) => true,
