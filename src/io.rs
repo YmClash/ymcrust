@@ -14,7 +14,11 @@ pub fn type_of<T>(_variable:T) -> &'static str{
 // input string
 
 
-pub fn input() ->String {
+pub fn input(msg:&str) ->String {
+    if !msg.is_empty(){
+        println!("{}",msg);
+    }
+
     let mut input = String::new();
     io::stdin().read_line(&mut input).expect("Error");
     let input  = input.trim().to_string();
@@ -23,7 +27,10 @@ pub fn input() ->String {
 }
 
 //input number
-pub fn input_numb() -> i32 {
+pub fn input_numb(msg:&str) -> i32 {
+    if !msg.is_empty(){
+        println!("{}",msg);
+    }
     let mut input = String::new();
     io::stdin().read_line(&mut input).expect("Error");
     let input  : i32= input.trim().parse().expect("Error");

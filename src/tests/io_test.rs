@@ -10,7 +10,7 @@ mod tests {
     fn test_input(){
         use ymcrust::input;
         // println!("Enter a string : YMCRUST");
-        let input_test = input();
+        let input_test = input("Enter a string : YMCRUST ");
         let result = input_test;
         assert_eq!(result,"YMCRUST");
     }
@@ -21,7 +21,7 @@ mod tests {
     fn test_input_numb(){
         use ymcrust::input_numb;
         // println!("Enter a number : 5");
-        let input_test = input_numb();
+        let input_test = input_numb("Enter a number : 5 ");
         let result = input_test;
         assert_eq!(result,5);
     }
