@@ -135,6 +135,28 @@ mod tests {
         assert_eq!(is_prime(100),false);
     }
 
+    #[test]
+    fn test_strom(){
+        use ymcrust::strom;
+        let result = strom(50,30);
+        assert_eq!(result,1);
+
+    }
+
+    #[test]
+    fn test_spannung(){
+        use ymcrust::spannung;
+        let result = spannung(8,3);
+        assert_eq!(result,24);
+    }
+
+    #[test]
+    fn test_resistor(){
+        use ymcrust::resistor;
+        let result = resistor(100,3);
+        assert_eq!(result,33);
+    }
+
 
 
 

@@ -130,3 +130,29 @@ pub fn is_prime(number:i32) ->bool{
     }
     true
 }
+
+
+//Electrotechnique      I = U/R
+// #016
+
+pub fn strom(spannung:i32,resistor:i32) ->i32 {
+    let strom = spannung/resistor;
+    return strom;
+}
+
+// #017
+
+// U = R*I
+pub fn spannung(resistor:i32,strom:i32) ->i32 {
+    let spannung = resistor*strom;
+    return spannung;
+}
+
+// #018
+
+// R = U/I
+
+pub fn resistor(spannung:i32,strom:i32) ->i32{
+    let resistor = spannung/strom;
+    return resistor;
+}
