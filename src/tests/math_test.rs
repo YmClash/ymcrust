@@ -157,6 +157,34 @@ mod tests {
         assert_eq!(result,33);
     }
 
+    #[test]
+    fn test_sinus_alpha(){
+        use ymcrust::sinus_alpha;
+        let result = sinus_alpha(30.5,5.5);
+        assert_eq!(result,5.545);
+    }
+
+    #[test]
+    fn test_cosinus_alpha() {
+        use ymcrust::cosinus_alpha;
+        let result = cosinus_alpha(15.5,35.5);
+        assert_eq!(result,0.437);
+    }
+
+    #[test]
+    fn test_tangens_alpha(){
+        use ymcrust::tangente_alpha;
+        let result = tangente_alpha(70.3,40.5);
+        assert_eq!(result,1.736);
+    }
+
+    #[test]
+    fn test_cotangente_alpha(){
+        use ymcrust::cotangente_alpha;
+        let result = cotangente_alpha(100.4,25.8);
+        assert_eq!(result,3.891);
+    }
+
 
 
 

@@ -156,3 +156,32 @@ pub fn resistor(spannung:i32,strom:i32) ->i32{
     let resistor = spannung/strom;
     return resistor;
 }
+
+
+//kreisfonction
+// #019
+
+
+pub  fn sinus_alpha(gegenkathe:f64,hypotenuse:f64) ->f64 {
+    let _sinus = gegenkathe/hypotenuse;
+    let sinus = (_sinus*1000.0).round() / 1000.0;
+    return sinus ;
+}
+
+pub fn cosinus_alpha(ankathete:f64,hypotenuse:f64) ->f64 {
+    let _cosinus = ankathete/hypotenuse;
+    let cosinus = (_cosinus*1000.0).round() / 1000.0;
+    return cosinus;
+}
+
+pub fn tangente_alpha(gegenkathe:f64,ankathete:f64) ->f64 {
+    let _tangente = gegenkathe/ankathete;
+    let tangente = (_tangente*1000.0).round() / 1000.0;
+    return tangente
+}
+
+pub fn cotangente_alpha(ankathete:f64,gegenkathe:f64) ->f64 {
+    let _contangete = ankathete/gegenkathe;
+    let contangete = (_contangete*1000.0).round() / 1000.0;
+    return contangete;
+}
