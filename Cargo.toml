@@ -32,5 +32,11 @@ path = "src/tests/date_test.rs"
 name = "file_test"
 path = "src/tests/file_test.rs"
 
+[[test]]
+name = "compiler_test"
+path = "src/tests/compiler_test.rs"
+
+
+
 
 

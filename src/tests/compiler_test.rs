@@ -5,9 +5,9 @@
 mod tests {
 
     #[test]
-    fn test_lexer() {
-        use ymcrust::lexer;
-        let result = lexer("2 + 2");
+    pub fn test_lexer() {
+        use ymcrust::lexxer;
+        let result = lexxer("2 + 2");
         assert_eq!(result, vec!["2", "+", "2"]);
     }
 
