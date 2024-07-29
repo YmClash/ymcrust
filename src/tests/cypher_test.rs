@@ -30,6 +30,7 @@ mod tests {
         let result = chacha_encrypt(&key, &nonce, text);
         assert_eq!(result,vec![62, 221, 140, 193, 207, 221, 29, 199, 47, 47, 6, 129, 114])
     }
+    // ici on test la fonction encrypt 2 fois pour etre sur
 
     #[test]
     fn test_chacha_decrypt() {
@@ -38,6 +39,7 @@ mod tests {
         let nonce = [0u8; 12];
         let text = vec![62, 221, 140, 193, 207, 221, 29, 199, 47, 47, 6, 129, 114];
         let plaintext = "Hello, World!";
+
 
         let cyphertext  = chacha_encrypt(&key, &nonce, plaintext);
         let result = chacha_decrypt(&key, &nonce, &text);
