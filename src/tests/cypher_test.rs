@@ -44,6 +44,6 @@ mod tests {
         let cyphertext  = chacha_encrypt(&key, &nonce, plaintext);
         let result = chacha_decrypt(&key, &nonce, &text);
         assert_eq!(cyphertext,text);
-        assert_eq!(result, plaintext.as_bytes().to_vec());
+        assert_eq!(result, "Hello, World!");
     }
 }

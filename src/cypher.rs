@@ -54,11 +54,11 @@ pub fn chacha_encrypt(key: &[u8;32], nonce: &[u8;12], text: &str) -> Vec<u8> {
 
 
 
-pub fn chacha_decrypt(key: &[u8;32], nonce: &[u8;12], text: &[u8]) -> Vec<u8> {
+pub fn chacha_decrypt(key: &[u8;32], nonce: &[u8;12], text: &[u8]) -> String {
     let mut cypher = ChaCha20::new(key.into(),nonce.into());
     let mut decrypt_text = text.to_vec();
     cypher.apply_keystream(&mut decrypt_text);
-    return decrypt_text;
+    return String::from_utf8(decrypt_text).expect("Error while decrypting tto string");
 
 }
 
