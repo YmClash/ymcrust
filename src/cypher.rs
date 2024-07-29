@@ -1,5 +1,6 @@
-
-
+//use std::io::Read;
+use chacha20::cipher::{NewCipher, StreamCipher};
+use chacha20::{ChaCha20};
 
 // Cypher module
 
@@ -24,7 +25,6 @@ pub fn cesar_encrypt(text: &str, key:u8)  -> String {
 }
 
 
-
 pub fn cesar_decrypt(text:&str,key:u8)  -> String {
     let mut msg_decrypt = String::new();
     for character in text.chars(){
@@ -39,3 +39,27 @@ pub fn cesar_decrypt(text:&str,key:u8)  -> String {
     }
     return msg_decrypt;
 }
+
+//CHACHA20
+
+//002
+
+
+pub fn chacha_encrypt(key: &[u8;32], nonce: &[u8;12], text: &str) -> Vec<u8> {
+    let mut cypher = ChaCha20::new(key.into(),nonce.into());
+    let mut cypher_text = text.as_bytes().to_vec();
+    cypher.apply_keystream(&mut cypher_text);
+    return cypher_text;
+}
+
+
+
+pub fn chacha_decrypt(key: &[u8;32], nonce: &[u8;12], text: &[u8]) -> Vec<u8> {
+    let mut cypher = ChaCha20::new(key.into(),nonce.into());
+    let mut decrypt_text = text.to_vec();
+    cypher.apply_keystream(&mut decrypt_text);
+    return decrypt_text;
+
+}
+
+
