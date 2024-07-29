@@ -37,6 +37,12 @@ name = "compiler_test"
 path = "src/tests/compiler_test.rs"
 
 
+[[test]]
+name = "cypher_test"
+path = "src/tests/cypher_test.rs"
+
+
+
 
 
 
