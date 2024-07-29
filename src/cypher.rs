@@ -30,8 +30,8 @@ pub fn cesar_decrypt(text:&str,key:u8)  -> String {
     for character in text.chars(){
         if character.is_alphabetic(){
             let base = if character.is_ascii_lowercase(){ b'a' } else { b'A' };
-            let decyoher = ((character as u8 + base - key) % 26) + base;
-            msg_decrypt.push(decyoher as char);
+            let decypher = ((character as u8 - base + 26 - key) % 26) + base;
+            msg_decrypt.push(decypher as char);
         }
         else {
             msg_decrypt.push(character);
