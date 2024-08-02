@@ -59,6 +59,110 @@ pub fn lexxer(input: &str) -> Vec<Token> {
 }
 
 
+//parser
+// AST Anstract Syntax Tree
+
+#[derive(Debug)]
+
+pub enum ASTNode {
+    Number(i64),
+    Add(Box<ASTNode>, Box<ASTNode>),
+    Subtract(Box<ASTNode>, Box<ASTNode>),
+    Multiply(Box<ASTNode>, Box<ASTNode>),
+    Divide(Box<ASTNode>, Box<ASTNode>),
+}
+
+
+fn parse(tokens: &[Token]) -> ASTNode {
+    fn parse_expr(tokens: &[Token], pos: &mut usize) -> ASTNode {
+        let mut left = parse_term(tokens, pos);
+        while *pos < tokens.len() {
+            match tokens[*pos] {
+                Token::Plus => {
+                    *pos += 1;
+                    left = ASTNode::Add(Box::new(left), Box::new(parse_term(tokens, pos)));
+                },
+                Token::Minus => {
+                    *pos += 1;
+                    left = ASTNode::Subtract(Box::new(left), Box::new(parse_term(tokens, pos)));
+                },
+                _ => break,
+            }
+        }
+        left
+    }
+
+    fn parse_term(tokens: &[Token], pos: &mut usize) -> ASTNode {
+        let mut left = parse_factor(tokens, pos);
+        while *pos < tokens.len() {
+            match tokens[*pos] {
+                Token::Multiply => {
+                    *pos += 1;
+                    left = ASTNode::Multiply(Box::new(left), Box::new(parse_factor(tokens, pos)));
+                },
+                Token::Divide => {
+                    *pos += 1;
+                    left = ASTNode::Divide(Box::new(left), Box::new(parse_factor(tokens, pos)));
+                },
+                _ => break,
+            }
+        }
+        left
+    }
+
+    fn parse_factor(tokens: &[Token], pos: &mut usize) -> ASTNode {
+        match tokens[*pos] {
+            Token::Number(num) => {
+                *pos += 1;
+                ASTNode::Number(num)
+            },
+            Token::LParen => {
+                *pos += 1;
+                let expr = parse_expr(tokens, pos);
+                if let Token::RParen = tokens[*pos] {
+                    *pos += 1;
+                    expr
+                } else {
+                    panic!("Expected closing parenthesis");
+                }
+            },
+            _ => panic!("Unexpected token: {:?}", tokens[*pos]),
+        }
+    }
+
+    let mut pos = 0;
+    let ast = parse_expr(tokens, &mut pos);
+    if pos != tokens.len() {
+        panic!("Unexpected tokens at the end");
+    }
+    ast
+}
+
+
+
+
+//***/*/*/****//
+//Evaluate the AST and generate the result
+
+pub fn evaluate(ast: &ASTNode) -> i64 {
+    match ast {
+        ASTNode::Number(val) => *val,
+        ASTNode::Add(left,right) => evaluate(left) + evaluate(right),
+        ASTNode::Subtract(left,right) => evaluate(left) - evaluate(right),
+        ASTNode::Multiply(left,right) => evaluate(left) * evaluate(right),
+        ASTNode::Divide(left,right) => evaluate(left) / evaluate(right),
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
