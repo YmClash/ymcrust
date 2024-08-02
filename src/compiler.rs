@@ -73,7 +73,7 @@ pub enum ASTNode {
 }
 
 
-fn parse(tokens: &[Token]) -> ASTNode {
+pub fn parse(tokens: &[Token]) -> ASTNode {
     fn parse_expr(tokens: &[Token], pos: &mut usize) -> ASTNode {
         let mut left = parse_term(tokens, pos);
         while *pos < tokens.len() {
