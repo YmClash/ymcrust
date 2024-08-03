@@ -1,6 +1,7 @@
 use std::fs::File;
 use std::io::{BufRead,BufReader,Read};
 use std ::io::Error;
+use csv::ReaderBuilder;
 
 
 
@@ -17,6 +18,7 @@ pub fn read_file(path: &str) -> Result<String, Error> {
 }
 
 
+// #002
 pub fn read_show_file(path:&str) {
     let file = File::open(path).unwrap();
     let reader = BufReader::new(file);
@@ -26,3 +28,18 @@ pub fn read_show_file(path:&str) {
     }
 
 }
+
+
+// #003
+//csv file
+
+pub fn read_and_show_csv_file(path: &str){
+    let file = File::open(path).unwrap();
+    let mut reader = ReaderBuilder::new().from_reader(file);
+    for record in reader.records(){
+        let record = record.unwrap();
+        println!("{:?}",record);
+    }
+}
+
+

@@ -27,6 +27,24 @@ mod tests {
         //clean up
         std::fs::remove_file(file_path).expect("Error deleting file");
     }
+
+    #[test]
+    fn test_read_show_csv(){
+        use ymcrust::read_and_show_csv_file;
+        let path ="test.csv";
+        let mut file = File::create(path).expect("Error creating file");
+        writeln!((file), "name,age,city").expect("Error writing to file");
+
+        let result = read_and_show_csv_file(path);
+        assert!(result , vec!["name","age","city"]);
+
+        std::fs::remove_file(path).unwrap();
+
+
+
+    }
+
+
     //
     // #[test]
     //
