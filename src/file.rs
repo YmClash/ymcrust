@@ -1,10 +1,7 @@
 use std::fs::File;
 use std::io::{BufRead,BufReader,Read};
 use std ::io::Error;
-use csv::ReaderBuilder;
-
-
-
+use polars::prelude::*;
 // File Manupulation Module
 
 
@@ -29,17 +26,29 @@ pub fn read_show_file(path:&str) {
 
 }
 
-
 // #003
 //csv file
+//
+// pub fn read_csv_with_polars(path: &str) -> Result<DataFrame> {
+//     let df = CsvReader::from_path(path)?
+//         .has_header(true)
+//         .finish()?;
+//     Ok(df)
+// }
+//
 
-pub fn read_and_show_csv_file(path: &str){
-    let file = File::open(path).unwrap();
-    let mut reader = ReaderBuilder::new().from_reader(file);
-    for record in reader.records(){
-        let record = record.unwrap();
-        println!("{:?}",record);
-    }
-}
 
 
+
+// #004
+//
+// pub fn read_and_show_csv_file(path: &str) -> () {
+//     let file = File::open(path).unwrap();
+//     let mut reader = ReaderBuilder::new().from_reader(file);
+//     for record in reader.records(){
+//         let record = record.unwrap();
+//         println!("{:?}",record);
+//     }
+// }
+//
+//
