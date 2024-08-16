@@ -1,7 +1,8 @@
 use std::fs::File;
 use std::io::{BufRead,BufReader,Read};
 use std ::io::Error;
-use polars::prelude::*;
+//use polars::prelude::*;
+//use polars::prelude::DataType::String;
 // File Manupulation Module
 
 
@@ -27,6 +28,14 @@ pub fn read_show_file(path:&str) {
 }
 
 // #003
+
+pub fn read_file_length(file_path:&str) -> usize {
+    let mut file = File::open(file_path).unwrap();
+    let mut content = String::new();
+    file.read_to_string(&mut content).unwrap();
+    return content.len();
+}
+
 //csv file
 //
 // pub fn read_csv_with_polars(path: &str) -> Result<DataFrame> {
